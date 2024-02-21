@@ -1,0 +1,31 @@
+{
+    "name": "nwidart/token",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Token\\": "",
+            "Modules\\Token\\App\\": "app/",
+            "Modules\\Token\\Database\\Factories\\": "database/factories/",
+            "Modules\\Token\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Token\\Tests\\": "tests/"
+        }
+    }
+}

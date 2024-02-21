@@ -1,5 +1,7 @@
 <?php
 
+use Modules\User\App\Models\User;
+
 return [
 
     /*
@@ -13,8 +15,8 @@ return [
     |
     */
 
-    'defaults' => [
-        'guard' => 'web',
+    'defaults'         => [
+        'guard'     => 'web',
         'passwords' => 'users',
     ],
 
@@ -35,9 +37,14 @@ return [
     |
     */
 
-    'guards' => [
+    'guards'           => [
         'web' => [
-            'driver' => 'session',
+            'driver'   => 'session',
+            'provider' => 'users',
+        ],
+
+        'api' => [
+            'driver'   => 'passport',
             'provider' => 'users',
         ],
     ],
@@ -59,10 +66,10 @@ return [
     |
     */
 
-    'providers' => [
+    'providers'        => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model'  => User::class,
         ],
 
         // 'users' => [
@@ -90,11 +97,11 @@ return [
     |
     */
 
-    'passwords' => [
+    'passwords'        => [
         'users' => [
             'provider' => 'users',
-            'table' => 'password_reset_tokens',
-            'expire' => 60,
+            'table'    => 'password_reset_tokens',
+            'expire'   => 60,
             'throttle' => 60,
         ],
     ],
@@ -111,5 +118,5 @@ return [
     */
 
     'password_timeout' => 10800,
-
+    'bearer_expires'   => (int) env('BEARER_EXPIRES_AT', 24),
 ];

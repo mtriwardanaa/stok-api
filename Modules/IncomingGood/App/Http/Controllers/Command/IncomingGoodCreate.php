@@ -35,6 +35,7 @@ class IncomingGoodCreate extends Controller
 
             if (isset($post['good_ids'])) {
                 $details = [];
+                $updateQtys = [];
                 foreach ($post['good_ids'] as $key => $goodId) {
                     $details[] = [
                         'id'               => strtolower(Str::ulid()),
@@ -45,13 +46,15 @@ class IncomingGoodCreate extends Controller
                         'created_at'       => date('Y-m-d H:i:s'),
                         'updated_at'       => date('Y-m-d H:i:s'),
                     ];
+
+                    $updateQtys[] = 0;
                 }
 
                 if (!empty($details)) {
                     $createIncomingGood->incomingGoodDetails()->insert($details);
                 }
 
-                IncomingGoodCreated::dispatch(array_column($details, 'id'));
+                IncomingGoodCreated::dispatch(array_column($details, 'id'), $updateQtys);
             }
 
             DB::commit();

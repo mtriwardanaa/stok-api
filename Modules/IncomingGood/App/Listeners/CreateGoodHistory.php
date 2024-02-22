@@ -4,6 +4,7 @@ namespace Modules\IncomingGood\App\Listeners;
 
 use Modules\Good\App\Models\GoodHistory;
 use Modules\IncomingGood\App\Events\IncomingGoodCreated;
+use Modules\IncomingGood\App\Events\IncomingGoodUpdated;
 use Modules\IncomingGood\App\Models\IncomingGoodDetail;
 use Str;
 
@@ -22,7 +23,7 @@ class CreateGoodHistory
     /**
      * Handle the event.
      */
-    public function handle(IncomingGoodCreated $event): void
+    public function handle(IncomingGoodCreated|IncomingGoodUpdated $event): void
     {
         $incomingGoodDetails = $this->incomingGoodDetail->with('good')->whereIn('id', $event->incomingGoodDetailIds)->get()->toArray();
 
@@ -40,7 +41,7 @@ class CreateGoodHistory
             }
 
             if (!empty($histories)) {
-                $this->goodHistory->upsert($histories, ['referece_id']);
+                $this->goodHistory->upsert($histories, ['reference_id']);
             }
         }
     }

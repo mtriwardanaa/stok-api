@@ -42,6 +42,8 @@ class OutgoingGoodCreate extends Controller
             if (isset($post['good_ids'])) {
                 $details = [];
                 foreach ($post['good_ids'] as $key => $goodId) {
+                    $this->availableApproveValidator->stok($goodId, $post['qtys'][$key]);
+
                     $details[] = [
                         'id'                    => strtolower(Str::ulid()),
                         'outgoing_good_id'      => $createOutgoingGood->id,

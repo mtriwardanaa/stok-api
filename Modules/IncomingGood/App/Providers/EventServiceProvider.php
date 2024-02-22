@@ -4,7 +4,10 @@ namespace Modules\IncomingGood\App\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Modules\IncomingGood\App\Events\IncomingGoodCreated;
+use Modules\IncomingGood\App\Events\IncomingGoodDeleted;
+use Modules\IncomingGood\App\Events\IncomingGoodUpdated;
 use Modules\IncomingGood\App\Listeners\CreateGoodHistory;
+use Modules\IncomingGood\App\Listeners\DeleteGoodHistory;
 use Modules\IncomingGood\App\Listeners\UpdateGoodQty;
 
 class EventServiceProvider extends ServiceProvider
@@ -18,6 +21,14 @@ class EventServiceProvider extends ServiceProvider
         IncomingGoodCreated::class => [
             UpdateGoodQty::class,
             CreateGoodHistory::class,
+        ],
+        IncomingGoodUpdated::class => [
+            UpdateGoodQty::class,
+            CreateGoodHistory::class,
+        ],
+        IncomingGoodDeleted::class => [
+            UpdateGoodQty::class,
+            DeleteGoodHistory::class,
         ],
     ];
 

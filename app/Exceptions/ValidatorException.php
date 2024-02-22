@@ -16,6 +16,6 @@ class ValidatorException extends Exception
             error: trans($this->getMessage()),
         );
 
-        return response($error->toArray(), $this->getCode() ?? 500);
+        return response($error->toArray(), (gettype($this->getCode()) == 'integer' ? $this->getCode() : 500) ?? 500);
     }
 }

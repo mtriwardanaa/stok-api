@@ -1,19 +1,13 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use App\Helper\ValueObject\Func;
+use Modules\IncomingGood\App\Http\Controllers\Command\IncomingGoodCreate;
+use Modules\IncomingGood\App\Http\Controllers\Query\IncomingGoodList;
 
-/*
-    |--------------------------------------------------------------------------
-    | API Routes
-    |--------------------------------------------------------------------------
-    |
-    | Here is where you can register API routes for your application. These
-    | routes are loaded by the RouteServiceProvider within a group which
-    | is assigned the "api" middleware group. Enjoy building your API!
-    |
-*/
-
-Route::middleware(['auth:sanctum'])->prefix('v1')->name('api.')->group(function () {
-    Route::get('incominggood', fn (Request $request) => $request->user())->name('incominggood');
+Route::prefix('v1')->middleware(['auth:api'])->group(function () {
+    Route::prefix('incoming-goods')->group(function () {
+        Route::get('/', [IncomingGoodList::class, Func::DEFAULT ->value]);
+        Route::get('/{incoming_good}', [IncomingGoodList::class, 'detail']);
+        Route::post('/', [IncomingGoodCreate::class, Func::DEFAULT ->value]);
+    });
 });

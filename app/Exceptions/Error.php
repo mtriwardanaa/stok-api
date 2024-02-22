@@ -9,7 +9,7 @@ class Error implements Arrayable
 {
     public function __construct(
         private ?Request $request,
-        private int $code = 500,
+        private int|string $code = 500,
         private string $error = '',
     ) {
     }
@@ -19,7 +19,7 @@ class Error implements Arrayable
         return [
             'status'  => false,
             'message' => $this->error,
-            'code'    => $this->code,
+            'code'    => (gettype($this->code) == 'integer' ? $this->code : 500) ?? 500,
         ];
     }
 }

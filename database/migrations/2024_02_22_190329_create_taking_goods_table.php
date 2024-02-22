@@ -15,10 +15,14 @@ return new class extends Migration {
             $table->string('taking_number');
             $table->dateTime('date');
             $table->ulid('created_by')->nullable();
+            $table->ulid('updated_by')->nullable();
+            $table->string('status');
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('created_by')->references('id')
+                ->on('users')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreign('updated_by')->references('id')
                 ->on('users')->nullOnDelete()->cascadeOnUpdate();
         });
     }

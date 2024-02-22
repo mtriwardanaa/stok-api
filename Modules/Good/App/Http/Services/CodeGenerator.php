@@ -3,6 +3,7 @@
 namespace Modules\Good\App\Http\Services;
 
 use Modules\IncomingGood\App\Models\IncomingGood;
+use Modules\TakingGood\App\Models\TakingGood;
 
 class CodeGenerator
 {
@@ -31,6 +32,20 @@ class CodeGenerator
             'WH-IN-%s-%s',
             $date,
             $totalIncomingGood
+        );
+    }
+
+    public static function generateTakingNumber()
+    {
+        $totalTakingGood = sprintf('%03s', (TakingGood::whereDate('date', date('Y-m-d'))->count()) + 1);
+        $now = now();
+
+        $date = $now->format('d/m/Y');
+
+        return sprintf(
+            'ORD-%s-%s',
+            $date,
+            $totalTakingGood
         );
     }
 }

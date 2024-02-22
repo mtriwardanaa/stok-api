@@ -1,4 +1,6 @@
 {
+    "Some goods not valid.": "Ada barang yang tidak valid.",
+    "Stock goods are not available.": "Stok barang tidak tersedia.",
     "No query results for model :model :id": "id: (:id) tidak ditemukan pada data :model",
     "The server cannot or will not process the request due to an apparent client error.": "Server tidak dapat atau tidak akan memproses permintaan karena kesalahan klien",
     "The user credentials were incorrect.": "Username atau Kata Sandi salah.",

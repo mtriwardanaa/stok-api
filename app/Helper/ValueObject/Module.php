@@ -9,6 +9,7 @@ class Module
         $replace = [
             'Unit'         => '(Satuan Barang)',
             'IncomingGood' => '(Barang Masuk)',
+            'TakingGood'   => '(Pemesanan)',
             'Good'         => '(Barang)',
         ];
 

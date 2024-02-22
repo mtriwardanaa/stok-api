@@ -3,6 +3,7 @@
 namespace Modules\Role\App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\User\App\Models\User;
@@ -27,7 +28,8 @@ use Illuminate\Database\Eloquent\Collection;
  */
 class Permission extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, HasUlids;
+
     protected $table = 'permissions';
     public $incrementing = false;
 
@@ -36,6 +38,12 @@ class Permission extends Model
         'label',
         'description',
         'guard',
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+        'deleted_at' => 'datetime:Y-m-d H:i:s',
     ];
 
     public function roles()

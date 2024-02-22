@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class Error implements Arrayable
 {
     public function __construct(
-        private Request $request,
+        private ?Request $request,
         private int $code = 500,
         private string $error = '',
     ) {

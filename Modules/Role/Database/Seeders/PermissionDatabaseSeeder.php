@@ -15,7 +15,7 @@ class PermissionDatabaseSeeder extends Seeder
                 0 =>
                     array(
                         'id'          => '01hq66jy3f97nd4vz48q0p4yna',
-                        'name'        => 'item.index',
+                        'name'        => 'goods.index',
                         'label'       => 'Barang',
                         'description' => 'Daftar Barang',
                         'guard'       => 'api',
@@ -26,7 +26,7 @@ class PermissionDatabaseSeeder extends Seeder
                 1 =>
                     array(
                         'id'          => '01hq66yda7qapg05g3ttgx56qw',
-                        'name'        => 'item.create',
+                        'name'        => 'goods.create',
                         'label'       => 'Barang',
                         'description' => 'Tambah Barang',
                         'guard'       => 'api',
@@ -37,7 +37,7 @@ class PermissionDatabaseSeeder extends Seeder
                 2 =>
                     array(
                         'id'          => '01hq670ctm2pp07121kt4fbavh',
-                        'name'        => 'item.update',
+                        'name'        => 'goods.update',
                         'label'       => 'Barang',
                         'description' => 'Ubah Barang',
                         'guard'       => 'api',
@@ -48,7 +48,7 @@ class PermissionDatabaseSeeder extends Seeder
                 3 =>
                     array(
                         'id'          => '01hq6725hj5jarv4fy6hzp77rj',
-                        'name'        => 'item.delete',
+                        'name'        => 'goods.delete',
                         'label'       => 'Barang',
                         'description' => 'Hapus Barang',
                         'guard'       => 'api',
@@ -59,7 +59,7 @@ class PermissionDatabaseSeeder extends Seeder
                 4 =>
                     array(
                         'id'          => '01hq673zdnv2ymhcnv4e2ecpzt',
-                        'name'        => 'item.view',
+                        'name'        => 'goods.view',
                         'label'       => 'Barang',
                         'description' => 'Informasi Barang',
                         'guard'       => 'api',

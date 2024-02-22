@@ -8,12 +8,10 @@ use Modules\User\App\Models\User;
 
 class CurrentUser extends Controller
 {
-    protected $user;
-
-    public function __construct(User $user)
+    public function __construct(private User $user)
     {
-        $this->user = $user;
     }
+
     public function handle()
     {
         $userId = auth()->user()->id;

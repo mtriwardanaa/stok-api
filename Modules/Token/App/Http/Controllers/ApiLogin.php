@@ -14,24 +14,15 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class ApiLogin extends PassportAccessTokenController
 {
-    protected $user;
-    protected $tokens;
-    protected $server;
-    protected $tokenValidator;
-    protected $permissionValidator;
-
     public function __construct(
-        User $user,
         AuthorizationServer $server,
         TokenRepository $tokens,
-        TokenValidator $tokenValidator,
-        PermissionValidator $permissionValidator
+        protected User $user,
+        protected TokenValidator $tokenValidator,
+        protected PermissionValidator $permissionValidator
     ) {
-        $this->user = $user;
         $this->server = $server;
         $this->tokens = $tokens;
-        $this->tokenValidator = $tokenValidator;
-        $this->permissionValidator = $permissionValidator;
     }
 
     public function issueToken(ServerRequestInterface $serverRequestInterface)

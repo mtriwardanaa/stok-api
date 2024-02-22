@@ -1,39 +1,35 @@
 <?php
 
-namespace Modules\Role\App\Models;
+namespace Modules\Good\App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\User\App\Models\User;
 
 /**
- * Class Role
+ * Class Unit
  *
  * @property string $id
  * @property string $name
- * @property string $label
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
  *
- * @property Collection|Permission[] $permissions
- * @property Collection|User[] $users
+ * @property Collection|Good[] $goods
  *
- * @package Modules\Role\App\Models
+ * @package Modules\Good\App\Models
  */
-class Role extends Model
+class Unit extends Model
 {
     use SoftDeletes, HasUlids;
 
-    protected $table = 'roles';
+    protected $table = 'units';
     public $incrementing = false;
 
     protected $fillable = [
         'name',
-        'label'
     ];
 
     protected $casts = [
@@ -42,13 +38,8 @@ class Role extends Model
         'deleted_at' => 'datetime:Y-m-d H:i:s',
     ];
 
-    public function users()
+    public function goods()
     {
-        return $this->hasMany(User::class);
-    }
-
-    public function permissions()
-    {
-        return $this->belongsToMany(Permission::class, 'permission_roles');
+        return $this->hasMany(Good::class);
     }
 }

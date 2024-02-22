@@ -1,39 +1,44 @@
 <?php
 
-namespace Modules\Role\App\Models;
+namespace Modules\Good\App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\User\App\Models\User;
 
 /**
- * Class Role
+ * Class Good
  *
  * @property string $id
+ * @property string|null $unit_id
  * @property string $name
- * @property string $label
+ * @property string $price
+ * @property string $qty
+ * @property string $qty_warning
+ * @property string $code
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
  *
- * @property Collection|Permission[] $permissions
- * @property Collection|User[] $users
+ * @property Unit|null $unit
  *
- * @package Modules\Role\App\Models
+ * @package Modules\Good\App\Models
  */
-class Role extends Model
+class Good extends Model
 {
     use SoftDeletes, HasUlids;
 
-    protected $table = 'roles';
+    protected $table = 'goods';
     public $incrementing = false;
 
     protected $fillable = [
+        'unit_id',
         'name',
-        'label'
+        'price',
+        'qty',
+        'qty_warning',
+        'code',
     ];
 
     protected $casts = [
@@ -42,13 +47,8 @@ class Role extends Model
         'deleted_at' => 'datetime:Y-m-d H:i:s',
     ];
 
-    public function users()
+    public function unit()
     {
-        return $this->hasMany(User::class);
-    }
-
-    public function permissions()
-    {
-        return $this->belongsToMany(Permission::class, 'permission_roles');
+        return $this->belongsTo(Unit::class);
     }
 }

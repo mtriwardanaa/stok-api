@@ -8,6 +8,7 @@ class Module
     {
         $replace = [
             'Unit' => '(Satuan Barang)',
+            'Good' => '(Barang)',
         ];
 
         return str_replace(array_keys($replace), array_values($replace), $module);

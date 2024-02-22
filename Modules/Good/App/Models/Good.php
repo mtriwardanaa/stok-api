@@ -41,6 +41,11 @@ class Good extends Model
         'code',
     ];
 
+    protected $attributes = [
+        'qty'         => 0,
+        'qty_warning' => 0,
+    ];
+
     protected $casts = [
         'created_at' => 'datetime:Y-m-d H:i:s',
         'updated_at' => 'datetime:Y-m-d H:i:s',

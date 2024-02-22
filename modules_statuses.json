@@ -3,5 +3,6 @@
     "Role": true,
     "User": true,
     "Good": true,
-    "IncomingGood": true
+    "IncomingGood": true,
+    "TakingGood": true
 }

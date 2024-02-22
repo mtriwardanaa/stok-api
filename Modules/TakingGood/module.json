@@ -1,0 +1,11 @@
+{
+    "name": "TakingGood",
+    "alias": "takinggood",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\TakingGood\\App\\Providers\\TakingGoodServiceProvider"
+    ],
+    "files": []
+}

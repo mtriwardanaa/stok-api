@@ -1,0 +1,11 @@
+{
+    "name": "OutgoingGood",
+    "alias": "outgoinggood",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\OutgoingGood\\App\\Providers\\OutgoingGoodServiceProvider"
+    ],
+    "files": []
+}

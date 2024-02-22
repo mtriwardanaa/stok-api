@@ -4,5 +4,6 @@
     "User": true,
     "Good": true,
     "IncomingGood": true,
-    "TakingGood": true
+    "TakingGood": true,
+    "OutgoingGood": true
 }

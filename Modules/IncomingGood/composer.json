@@ -1,0 +1,31 @@
+{
+    "name": "nwidart/incominggood",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\IncomingGood\\": "",
+            "Modules\\IncomingGood\\App\\": "app/",
+            "Modules\\IncomingGood\\Database\\Factories\\": "database/factories/",
+            "Modules\\IncomingGood\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\IncomingGood\\Tests\\": "tests/"
+        }
+    }
+}

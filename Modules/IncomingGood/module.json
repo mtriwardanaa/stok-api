@@ -1,0 +1,11 @@
+{
+    "name": "IncomingGood",
+    "alias": "incominggood",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\IncomingGood\\App\\Providers\\IncomingGoodServiceProvider"
+    ],
+    "files": []
+}

@@ -2,5 +2,6 @@
     "Token": true,
     "Role": true,
     "User": true,
-    "Good": true
+    "Good": true,
+    "IncomingGood": true
 }

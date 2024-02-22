@@ -14,7 +14,6 @@ class UnitDelete extends Controller
         try {
             return Wrapper::data($unit->delete(), 'Delete Unit');
         } catch (\Throwable $th) {
-            dd($th);
             throw new ValidatorException($th->getMessage(), $th->getCode() ?? 500);
         }
     }

@@ -21,7 +21,6 @@ class UnitCreate extends Controller
         try {
             return Wrapper::data($this->unit->create($post), 'Create Unit');
         } catch (\Throwable $th) {
-            dd($th);
             throw new ValidatorException($th->getMessage(), $th->getCode() ?? 500);
         }
     }

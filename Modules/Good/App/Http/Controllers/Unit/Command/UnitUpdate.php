@@ -17,7 +17,6 @@ class UnitUpdate extends Controller
         try {
             return Wrapper::data(tap($unit)->update($post), 'Update Unit');
         } catch (\Throwable $th) {
-            dd($th);
             throw new ValidatorException($th->getMessage(), $th->getCode() ?? 500);
         }
     }

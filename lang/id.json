@@ -1,4 +1,5 @@
 {
+    "Taking good must be in open status.": "Pemesanan harus berada di status (open).",
     "Some goods not valid.": "Ada barang yang tidak valid.",
     "Stock goods are not available.": "Stok barang tidak tersedia.",
     "No query results for model :model :id": "id: (:id) tidak ditemukan pada data :model",

@@ -3,6 +3,7 @@
 namespace Modules\TakingGood\App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Good\App\Models\Good;
 
@@ -23,6 +24,8 @@ use Modules\Good\App\Models\Good;
  */
 class TakingGoodDetail extends Model
 {
+    use HasUlids;
+
     protected $table = 'taking_good_details';
     public $incrementing = false;
 

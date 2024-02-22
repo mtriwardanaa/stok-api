@@ -59,7 +59,6 @@ class TakingGoodCreate extends Controller
             DB::commit();
             return Wrapper::data($createTakingGood->load('takingGoodDetails'), 'Create Taking Good');
         } catch (\Throwable $th) {
-            dd($th);
             DB::rollBack();
             throw new ValidatorException($th->getMessage(), $th->getCode() ?? 500);
         }

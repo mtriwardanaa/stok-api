@@ -15,7 +15,7 @@ class RoleList extends Controller
 
     public function handle(Request $request)
     {
-        return Wrapper::data($this->role->with('permissions')->get()->toArray(), 'Role List');
+        return Wrapper::data($this->role->with('permissions', 'users')->get()->toArray(), 'Role List');
     }
 
     public function detail(Role $role)

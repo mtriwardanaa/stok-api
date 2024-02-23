@@ -15,7 +15,7 @@ class TakingGoodList extends Controller
 
     public function handle(Request $request)
     {
-        return Wrapper::data($this->takingGood->get()->toArray(), 'Taking Good List');
+        return Wrapper::data($this->takingGood->with('userCreate', 'takingGoodDetails.good')->get()->toArray(), 'Taking Good List');
     }
 
     public function detail(TakingGood $takingGood)

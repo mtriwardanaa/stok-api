@@ -15,11 +15,17 @@ class OutgoingGoodList extends Controller
 
     public function handle(Request $request)
     {
-        return Wrapper::data($this->outgoingGood->get()->toArray(), 'Outgoing Good List');
+        $outgoingGoods = $this->outgoingGood->with('userCreate', 'takingGood');
+        $status = $request->get('status');
+        if (isset($status)) {
+            $outgoingGoods->where('status', $status);
+        }
+
+        return Wrapper::data($outgoingGoods->get()->toArray(), 'Outgoing Good List');
     }
 
     public function detail(OutgoingGood $outgoingGood)
     {
-        return Wrapper::data($outgoingGood, 'Outgoing Good Detail');
+        return Wrapper::data($outgoingGood->load('outgoingGoodDetails.good'), 'Outgoing Good Detail');
     }
 }

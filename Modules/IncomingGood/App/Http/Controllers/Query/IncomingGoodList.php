@@ -15,11 +15,11 @@ class IncomingGoodList extends Controller
 
     public function handle(Request $request)
     {
-        return Wrapper::data($this->incomingGood->get()->toArray(), 'Incoming Good List');
+        return Wrapper::data($this->incomingGood->with('user')->get()->toArray(), 'Incoming Good List');
     }
 
     public function detail(IncomingGood $incomingGood)
     {
-        return Wrapper::data($incomingGood, 'Incoming Good Detail');
+        return Wrapper::data($incomingGood->load('incomingGoodDetails'), 'Incoming Good Detail');
     }
 }

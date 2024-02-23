@@ -15,7 +15,7 @@ class GoodList extends Controller
 
     public function handle(Request $request)
     {
-        return Wrapper::data($this->good->get()->toArray(), 'Good List');
+        return Wrapper::data($this->good->with('unit')->get()->toArray(), 'Good List');
     }
 
     public function detail(Good $good)

@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Modules\Good\Database\Seeders\GoodDatabaseSeeder;
+use Modules\Good\Database\Seeders\UnitDatabaseSeeder;
 use Modules\Role\Database\Seeders\PermissionDatabaseSeeder;
 use Modules\Role\Database\Seeders\PermissionRoleDatabaseSeeder;
 use Modules\Role\Database\Seeders\PermissionUserDatabaseSeeder;
@@ -23,5 +25,10 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionRoleDatabaseSeeder::class);
         $this->call(PermissionUserDatabaseSeeder::class);
         $this->call(OauthClientDatabaseSeeder::class);
+        $this->call(UnitDatabaseSeeder::class);
+        $this->call(GoodDatabaseSeeder::class);
+        $this->call(PermissionsTableSeeder::class);
+        $this->call(PermissionUsersTableSeeder::class);
+        $this->call(PermissionRolesTableSeeder::class);
     }
 }

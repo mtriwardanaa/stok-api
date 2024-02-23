@@ -1,19 +1,17 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use App\Helper\ValueObject\Func;
+use Modules\Role\App\Http\Controllers\Command\RoleCreate;
+use Modules\Role\App\Http\Controllers\Command\RoleDelete;
+use Modules\Role\App\Http\Controllers\Command\RoleUpdate;
+use Modules\Role\App\Http\Controllers\Query\RoleList;
 
-/*
-    |--------------------------------------------------------------------------
-    | API Routes
-    |--------------------------------------------------------------------------
-    |
-    | Here is where you can register API routes for your application. These
-    | routes are loaded by the RouteServiceProvider within a group which
-    | is assigned the "api" middleware group. Enjoy building your API!
-    |
-*/
-
-Route::middleware(['auth:sanctum'])->prefix('v1')->name('api.')->group(function () {
-    Route::get('role', fn (Request $request) => $request->user())->name('role');
+Route::prefix('v1')->middleware(['auth:api'])->group(function () {
+    Route::prefix('roles')->group(function () {
+        Route::get('/', [RoleList::class, Func::DEFAULT ->value]);
+        Route::get('/{role}', [RoleList::class, 'detail']);
+        Route::post('/', [RoleCreate::class, Func::DEFAULT ->value]);
+        Route::put('/{role}', [RoleUpdate::class, Func::DEFAULT ->value]);
+        Route::delete('/{role}', [RoleDelete::class, Func::DEFAULT ->value]);
+    });
 });
